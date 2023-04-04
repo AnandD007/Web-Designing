@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HTML Assignment</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Calibri;
+    }
+
+    header {
+      background-color: rgb(197, 108, 108);
+      padding: 10px;
+      text-align: center;
+      font-size: 20px;
+      color: white;
+    }
+
+    nav {
+      float: left;
+      width: 30%;
+      height: 700px;
+      background: rgb(206, 145, 145);
+      padding: 20px;
+    }
+
+    article {
+      font-weight: solid;
+      float: left;
+      padding: 40px;
+      width: 70%;
+      background-color: rgb(139, 75, 75);
+      height: 700px;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h3 align="center">HTML Assignment</h3>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="TimeTable.html" target="article_frame" alt="Time Table Page ">Time Table</a></li>
+      <li><a href="FavouriteChoicesTable.html" target="article_frame" alt="Favourite Choices Page ">Favourite Choices
+          Table</a></li>
+          <li><a href="AllTagsImplementation.html" target="article_frame" alt="All Tags Implementation">Favourite Choices
+            Table</a></li>
+    </ul>
+  </nav>
+  <section>
+    <article>
+      <h3 align="center">Html Tables</h3>
+      <!-- <embed src="TimeTable.html" height="500px" width="700px"> -->
+      <iframe src="TimeTable.html" name="article_frame" width="100%" height="600px"
+        style="border:none;"></iframe>
+    </article>
+  </section>
+</body>
+
+</html>
