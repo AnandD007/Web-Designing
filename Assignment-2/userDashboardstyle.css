@@ -1,0 +1,23 @@
+.border-tabs {
+    border-top: 4px solid rgb(151, 147, 153);
+    margin-right: 2px;
+    background-color: rgb(234, 233, 235);
+    color: black;
+    font-weight: bold;
+}
+
+.red-alerts-tab {
+    background-color: rgb(236, 194, 194);
+    border-left: 2px solid red;
+    padding: 15px;
+    padding-right: 40px;
+    font-weight: bold;
+}
+
+.yellow-alerts-tab {
+    background-color: rgb(240, 232, 125);
+    border-left: 2px solid rgb(249, 253, 12);
+    padding: 15px;
+    padding-right: 40px;
+    font-weight: bold;
+}
