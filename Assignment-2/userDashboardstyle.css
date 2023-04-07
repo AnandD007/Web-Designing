@@ -1,5 +1,5 @@
 .border-tabs {
-    border-top: 4px solid rgb(151, 147, 153);
+    border-top: 4px solid rgb(183, 177, 185);
     margin-right: 2px;
     background-color: rgb(234, 233, 235);
     color: black;
@@ -21,3 +21,7 @@
     padding-right: 40px;
     font-weight: bold;
 }
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
