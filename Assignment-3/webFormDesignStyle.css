@@ -1,0 +1,196 @@
+
+
+body {
+    background-color: rgb(240, 234, 234);
+}
+label
+{
+    margin-top:10px;
+    font-family: Arial;
+}
+.box-group
+{
+     width:800px;
+     float:left;
+}
+.div-form
+{
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgb(201, 200, 200);
+}
+hr
+{
+    width:1065px;
+    float:left;
+}
+.form-div-controller
+{
+    float:right;
+}
+.title-header
+{
+    margin-top:50px;
+}
+.border-none
+{
+    border:none;
+}
+.tab
+{
+    border:none;
+    border-bottom: 2px solid rgb(236, 234, 234);
+}
+/* Style the tab buttons */
+.tab button {
+    background-color: transparent;
+    margin-bottom:-3px;
+    border:none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 115px;
+    font-size: 18px;
+    /* transition: border-bottom 0.2s ease-in-out; */
+  }
+  .options-margin
+  {
+    margin-left:-15px;
+    margin-bottom:2px;
+  }
+  .border-radius
+  {
+    border-radius:5px;
+  }
+  
+  /* Add a bottom border to the active tab button */
+  .tab button.active {
+    border-bottom: 4px solid #378a4f;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 16px;
+  }
+  
+  /* Show the active tab content */
+  .tabcontent.active {
+    display: block;
+  }
+  .btn-text.active {
+    background-color: #0b0b0c;
+    color: #fff;
+  }
+  .btn-text
+  {
+    border-color: #b9bbc1;
+  }
+  /* Change the color of checked radio buttons */
+  .btn-text input[type="radio"]:checked + label {
+    color: #434446;
+  }
+  
+  /* Remove radio button styles */
+  .btn-text input[type="radio"] {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    pointer-events: none;
+  }
+  
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* When the textarea gets focus, do something */
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .form-container .btn {
+    background-color: #343297;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+
+     
+input.search-icon {
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+
+.embedded-daterangepicker .daterangepicker::before,
+.embedded-daterangepicker .daterangepicker::after {
+display: none;
+}
+.embedded-daterangepicker .daterangepicker {
+position: relative !important;
+top: auto !important;
+left: auto !important;
+float: left;
+width: 100%;
+margin-top: 0;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.embedded-daterangepicker .daterangepicker .drp-calendar {
+width: 50%;
+max-width: 50%;
+}
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color:  #343297;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  
+  .btn-opener
+  { 
+    padding-left:30px;
+    padding-right:30px;
+    padding:5px;
+    border-radius: 50px;
+    background-color: indigo;
+    color:white;
+    position: fixed;
+     bottom: 10px;
+      right: 10px; 
+    }
+  
