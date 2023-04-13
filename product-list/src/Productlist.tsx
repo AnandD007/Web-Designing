@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Form, Modal, Table } from 'react-bootstrap';
 import './App.css';
 import { Stepper } from 'react-form-stepper';
+import Search from './components/search';
+import Sort from './components/sort';
 
 interface Product {
     id: number;
@@ -10,11 +12,13 @@ interface Product {
     quantity: number;
     price: number;
 }
+
+
 const ProductsList: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
     const [sortedBy, setSortedBy] = useState<string>();
-    const [searchTerm, setSearchTerm] = useState("");
+
     const [currentProduct, setCurrentProduct] = useState<Product>({
         id: 0,
         name: '',
@@ -23,7 +27,6 @@ const ProductsList: React.FC = () => {
         price: 0,
     });
     const [products, setProducts] = useState<Product[]>([]);
-    const [filteredProducts, setFilteredProducts] = useState(products);
 
     const handleCloseModal = () => setShowModal(false);
 
@@ -44,11 +47,15 @@ const ProductsList: React.FC = () => {
     };
 
 
-    const handleSearch = () => {
-        const filtered = products.filter((product) =>
-            product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setFilteredProducts(filtered);
+    const [search, setSearch] = useState('');
+    const filteredItems = {
+        list: products.filter((item) =>
+            item.name.toLowerCase().includes(search.toLowerCase())
+        ),
+    };
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value);
     };
 
     const handleSort = (sortBy: string) => {
@@ -69,7 +76,7 @@ const ProductsList: React.FC = () => {
         setProducts(sortedList);
         setSortedBy(sortBy);
     };
-    
+
     const handleDeleteProduct = (id: number) => {
         const updatedList = products.filter((Product) => Product.id !== id);
         setProducts(updatedList);
@@ -79,12 +86,10 @@ const ProductsList: React.FC = () => {
         const { value } = event.target;
         setCurrentProduct((prevProduct) => ({ ...prevProduct, price: parseFloat(value) }));
     };
-
     const handleStep1Submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setCurrentStep(2);
     };
-
 
     const handleStep2Submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -97,45 +102,32 @@ const ProductsList: React.FC = () => {
             <div className="products-header header-color">
                 <h1>Product List</h1>
                 <div className="row col-md-12 justify-content-center">
-                    <div className="sort-container float-left col-sm-3 mt-4">
-                        <label htmlFor="sort-select" className="float-left col-sm-3 mt-1">
-                            Sort by:
-                        </label>
-                        <select
-                            id="sort-select"
-                            value={sortedBy}
-                            onChange={(e) => handleSort(e.target.value)}
-                            className="form-select float-right col-md-9"
-                        >
-                            <option value="nameAsc">Product Name [A to Z]</option>
-                            <option value="nameDesc">Product Name [Z to A]</option>
-                            <option value="priceAsc">Product Price [Low to High ]</option>
-                            <option value="priceDesc">Product Price [High to Low]</option>
-                        </select>
-                    </div>
-                    {/* <div className='col-md-5 float-right'>
-                        <label htmlFor="search" className='col-md-4'>
-                            <input id="search" type="text" className='form-control set-icon' onChange={handleSearch} placeholder='&#xF002; Search...' />
-                        </label>
-                    </div> */}
+                    <Sort
+                        sortedBy={sortedBy!}
+                        handleSort={handleSort}
+                    />
                     <div className="row col-md-6 ml-5">
-                    <div className='mt-4 col-md-5'>
-                        <input
-                            type="text"
-                            id="search"
-                            placeholder='&#xF002; Search Products...'
-                            className='form-control set-icon'
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+                        <div className='mt-4 col-md-5'>
+                            <Search
+                                search={search}
+                                handleSearch={handleSearch}
+                            />
+                            <datalist id="items-list">
+                                {products.map((item) => (
+                                    <div key={item.id}>
+                                        <option value={item.name}></option>
+                                    </div>
+                                ))}
+                            </datalist>
+
+                        </div>
+                        {/* <button className="btn mt-4 col-sm-3 rounded bg-primary search-btn float-right" onClick={handleSearch}>Search</button> */}
+                        <Button className="btn mt-4 col-sm-3 ml-5 rounded bg-primary float-right" variant="primary" onClick={handleShowModal}>
+                            Add Product
+                        </Button>
                     </div>
-                    <button className="btn mt-4 col-sm-3 rounded bg-primary search-btn float-right" onClick={handleSearch}>Search</button>
-                    <Button className="btn mt-4 col-sm-3 ml-5 rounded bg-primary float-right" variant="primary" onClick={handleShowModal}>
-                    Add Product
-                </Button>
                 </div>
-                </div>
-                <hr/>
+                <hr />
             </div>
             <Table striped bordered hover className="header-color">
                 <thead>
@@ -156,11 +148,11 @@ const ProductsList: React.FC = () => {
                             <td>{product.quantity}</td>
                             <td>{product.price.toFixed(2)}</td>
                             <td><button
-                          className="btn btn-danger"
-                          onClick={() => handleDeleteProduct(product.id)}
-                        >
-                          Delete Item
-                        </button></td>
+                                className="btn btn-danger"
+                                onClick={() => handleDeleteProduct(product.id)}
+                            >
+                                Delete Item
+                            </button></td>
                         </tr>
                     ))}
                 </tbody>
@@ -183,6 +175,7 @@ const ProductsList: React.FC = () => {
                                 onChange={handleInputChange}
                                 required
                             />
+
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Product Description</Form.Label>
@@ -199,7 +192,7 @@ const ProductsList: React.FC = () => {
                             <Button variant="secondary" onClick={handleCloseModal}>
                                 Cancel
                             </Button>
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary" type="submit"  disabled = {currentProduct.name.length >= 30 || currentProduct.description.length <= 100 } >
                                 Next
                             </Button>
                         </div>
@@ -241,7 +234,7 @@ const ProductsList: React.FC = () => {
                                 Back
                             </Button>
                             <div>
-                                <Button variant="primary" type="submit">
+                                <Button variant="primary" type="submit" disabled = {currentProduct.price == 0 || currentProduct.quantity == 0} >
                                     Add Product
                                 </Button>
                             </div>
