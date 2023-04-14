@@ -4,10 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-### `cd product-list`
-
-Sets Your current directory to 'product-list' folder.
-
 In the project directory, you can run:
 
 ### `npm start`
