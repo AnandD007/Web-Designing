@@ -148,6 +148,7 @@ function App() {
           <Sidebar />
           <div className="content-container">
             <Routes>
+              <Route path="/" element={<DashboardPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/product/add" element={<ProductAddPage />} />
               <Route path="/product/view" element={<ProductViewPage />} />
