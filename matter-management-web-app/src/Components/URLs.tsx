@@ -1,0 +1,10 @@
+export const mattersByClientsBaseURL = "https://localhost:7010/api/Matter/GetAllMattersByClients";
+export const billingByAttorneysBaseURL = "https://localhost:7010/api/Matter/GetLastWeeksBillingByAttorneys";
+export const matterBaseURL = "https://localhost:7010/api/Matter";
+export const clientBaseURL = "https://localhost:7010/api/Client";
+export const invoicesByMatterURL = "https://localhost:7010/api/Matter/GetInvoicesForMatter";
+export const invoicesForMatterURL = "https://localhost:7010/api/Matter/GetMattersForClient";
+export const GetAllInvoiceByMattersURL = "https://localhost:7010/api/Matter/GetAllInvoiceByMatters";
+export const jurisdictionBaseURL = "https://localhost:7010/api/Jurisdictions";
+export const attorneyBaseURL = "https://localhost:7010/api/Attorney";
+export const billingForAttorneyURL = "https://localhost:7010/api/Matter/GetLastWeeksBillingForAttorney";
