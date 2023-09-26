@@ -1,14 +1,8 @@
-All IX-Web development Assignments
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-
-### `cd products-dashboard-web-design`
-
-Sets Your current directory to 'products-dashboard-web-design' folder.
 
 In the project directory, you can run:
 
